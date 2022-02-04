@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\proto-bot"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "automatic",
+		"java.server.launchMode": "Standard"
+	}
+}
