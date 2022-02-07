@@ -15,9 +15,15 @@ public class RobotContainer {
  */
     //private final TestMotor testMotor = new TestMotor();
 
+<<<<<<< Updated upstream
 // privete final for intake
 private final Intake m_intake = new Intake();
 
+=======
+    // privete final for intake
+    private final Intake m_intake = new Intake();
+    private final arm m_arm = new arm();
+>>>>>>> Stashed changes
     // Controllers (input devices)
     // Set the port accordingly if you have multiple USB input devices
     final Joystick gamePad = new Joystick(1);
