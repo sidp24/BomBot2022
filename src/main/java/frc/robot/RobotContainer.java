@@ -11,24 +11,16 @@ public class RobotContainer {
 
     // Subsystems (driver train, and other manipulators)
     private final DriveTrain m_drive = new DriveTrain();
+    private final arm m_arm = new arm();
 /*    private final Hanger m_hanger = new Hanger();
  */
     //private final TestMotor testMotor = new TestMotor();
 
-<<<<<<< Updated upstream
-// privete final for intake
-private final Intake m_intake = new Intake();
-
-=======
-    // privete final for intake
-    private final Intake m_intake = new Intake();
-    private final arm m_arm = new arm();
->>>>>>> Stashed changes
     // Controllers (input devices)
     // Set the port accordingly if you have multiple USB input devices
     final Joystick gamePad = new Joystick(1);
     final Joystick logi = new Joystick(0);
-   
+
 
     // command for autonomous mode
     // private final Command m_autoCommand = new AutoPortDeploy(m_drive, m_intake, AUTO_PORT_DEPLOY_TIME, AUTO_PORT_DEPLOY_SPEED);
@@ -54,21 +46,23 @@ private final Intake m_intake = new Intake();
      */
     private void configureButtonBindings() {
 
-        // Gamepad Buttons to ID
-
-        // Buttons
+        // bind arm controls
         final Button btnOut = new JoystickButton(gamePad, BUMP_RIGHT); // Right bumper
         final Button btnIn = new JoystickButton(gamePad, BUMP_LEFT); // Left bumper
-        final Button btnHangEx = new JoystickButton(gamePad, BTN_Y); // Y
-        final Button btnHangRet = new JoystickButton(gamePad, BTN_B); // B
+        // final Button btnHangEx = new JoystickButton(gamePad, BTN_Y); // Y
+        // final Button btnHangRet = new JoystickButton(gamePad, BTN_B); // B
         final Button btnArmDown = new JoystickButton(gamePad, BTN_A); // A
         final Button btnArmUp = new JoystickButton(gamePad, BTN_X); // X
 
-        // Gamepad control
-        btnOut.whenPressed(new intakeOut(m_intake, () -> (!btnOut.get())));
-        btnIn.whenPressed(new IntakeIn(m_intake, () -> (!btnIn.get())));
+        btnArmDown.whenPressed(new ArmDown(m_arm, () -> (!btnArmDown.get())));
+        btnArmUp.whenPressed(new ArmUp(m_arm, () -> (!btnArmUp.get())));
 
-
+        // Gamepad Buttons to ID
+       /* final Button btnForward = new JoystickButton(gamePad, BTN_Y); // Y
+        btnForward.whenHeld(new TestGoForward(testMotor, () -> (!btnForward.get())));
+        
+        final Button btnBackward = new JoystickButton(gamePad, BTN_A); // A
+        btnBackward.whenHeld(new TestGoBack(testMotor, () -> (!btnBackward.get()))); */
     }
 
     /**
